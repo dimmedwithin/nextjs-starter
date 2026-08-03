@@ -55,6 +55,15 @@ src/
 
 See [`CLAUDE.md`](CLAUDE.md) for the full architectural context.
 
+## Sesiones de trabajo: `/retomar` y `/cerrar`
+
+Dos slash commands para llevar continuidad entre sesiones de Claude Code, respaldadas en un journal versionado en `docs/`:
+
+- **`/cerrar`** — al terminar de laburar: verifica el estado del repo (lint, typecheck, build, git status), escribe/actualiza `docs/journal/<fecha>.md` con qué se hizo y una sección "Próxima sesión — empezar acá", guarda memoria durable si corresponde, y commitea + pushea.
+- **`/retomar`** — al arrancar de nuevo: lee `docs/00-index.md` y la última entrada del journal, resume en qué quedó el proyecto, y propone el próximo paso (esperando tu OK antes de tocar nada).
+
+`docs/00-index.md` y `docs/journal/` no vienen pre-armados — los crea `/cerrar` la primera vez que se corre. Ver `.claude/commands/retomar.md` y `.claude/commands/cerrar.md` para el detalle completo.
+
 ## Deployment
 
 Deploy to Vercel. Set `NEXT_PUBLIC_API_URL` (and, after `/choose-stack`, your
