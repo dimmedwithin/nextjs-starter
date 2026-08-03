@@ -11,6 +11,8 @@ Zod · PostHog · pnpm · Vercel.
 Auth is intentionally **not** wired up yet — see [Auth setup](#auth-setup)
 below.
 
+> **Personal starter kit.** This is a personal template maintained for my own projects (and shared as-is with friends). It's opinionated on purpose and will keep changing as my preferences and the ecosystem evolve — no promise of backward compatibility between clones taken at different times. Fork/clone it and adapt it freely to your own needs.
+
 ## Setup
 
 1. Clone this repo.
@@ -57,3 +59,7 @@ See [`CLAUDE.md`](CLAUDE.md) for the full architectural context.
 
 Deploy to Vercel. Set `NEXT_PUBLIC_API_URL` (and, after `/choose-stack`, your
 auth env vars) as Vercel project environment variables.
+
+## License
+
+[MIT](LICENSE) — use it, fork it, adapt it freely.
