@@ -71,6 +71,27 @@ or any future work adds route-protection logic. Check
 `node_modules/next/dist/docs/` for anything else that looks unfamiliar before
 assuming older Next.js conventions still apply.
 
+## Git identity & commit hygiene
+
+This repo lives under the `dimmedwithin` GitHub account, which is separate
+from the user's work GitHub account. Both accounts are configured on this
+machine, so:
+
+- **Local git identity, not global.** This repo's `user.name`/`user.email`
+  are set via `git config` (local, no `--global`) to the `dimmedwithin`
+  identity (`Facu Fuentes <facufu@proton.me>`). Never rely on the machine's
+  global git config for commits here — it may point at the work identity.
+- **Remote must use the `github-dimmedwithin` SSH host alias**, never plain
+  `github.com`. On this machine, `git@github.com` authenticates as the work
+  account; only `git@github-dimmedwithin:dimmedwithin/<repo>.git` routes
+  through the key tied to the `dimmedwithin` account. Verify with
+  `ssh -T git@github-dimmedwithin` (expect `Hi dimmedwithin!`) before adding
+  or changing a remote, and never push if that check fails or resolves to
+  the wrong account.
+- **No AI attribution in commits.** Never add `Co-Authored-By: Claude`,
+  "Generated with Claude Code", or similar trailers/lines to commit messages
+  in this repo — commits should read as solely authored by the user.
+
 ## Folder structure
 
 ```
